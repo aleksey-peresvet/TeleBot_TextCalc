@@ -71,9 +71,9 @@ namespace TelegramBot_Arithmetic_Calculator
         public ref Stack<string> Parser_poliz(string input_string)
         {
             result = new Stack<string>();
+            input_string = input_string.Replace(" ", "");
             if (!IsArithmetic(input_string)) return ref result;
-            input_string = input_string.Trim();//Remove whitespaces
-            if(input_string.Contains("**")) input_string.Replace("**", "^");//Replace two char operator with one char
+            if (input_string.Contains("**")) input_string.Replace("**", "^");//Replace two char operator with one char
             MatchCollection elements = get_elements(input_string);//Parse input string with regex
             Stack<string> stack = new Stack<string>();
             foreach (Match match in elements)
